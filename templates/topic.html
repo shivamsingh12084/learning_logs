@@ -1,0 +1,26 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}Topic{% endblock title %}
+
+{% block content %}
+
+<p>Topic: {{topic}} </p>
+<p>Entries:</p>
+<ul>
+    {% for entry in entries %}
+    <li>
+        <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+        <!-- The above (|) represents a template filter - a function that modifies 
+        the value in a template varible.-->
+        <p>{{ entry.text|linebreaks }}</p>
+    </li>
+    {% empty %}
+        <li>
+            There are no entries for the topic yet.
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

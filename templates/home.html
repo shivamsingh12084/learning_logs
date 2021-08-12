@@ -1,0 +1,16 @@
+
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+<link rel="stylesheet" href="{%static 'css/base.css' %}">
+
+{% block content %}
+<div class="background-image">
+    <img src="{% static 'images/background-desk.jpg' %}">
+</div>
+<p>
+    Learning Log helps you keep track of your learning, for any topic
+    you're learning about.
+</p>
+{% endblock content %}

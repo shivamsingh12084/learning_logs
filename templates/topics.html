@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}Topics{% endblock title %}
+
+{% block content %}
+<h1>
+    Topics
+</h1>
+<ul>
+    {% for topic in topics %}
+        <li>
+            <a href="{% url 'pages:topic_name' topic.id %}">{{ topic }}</a>
+        </li>
+    {% empty %}
+    <!-- Here empty tag tell djang what to do when there in no item present.-->
+        <li>No topics have been added yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
