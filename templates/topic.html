@@ -8,6 +8,9 @@
 
 <p>Topic: {{topic}} </p>
 <p>Entries:</p>
+<p>
+    <a href="{% url 'pages:new_entry' topic.id %}">Add new entry</a>
+</p>
 <ul>
     {% for entry in entries %}
     <li>
@@ -15,6 +18,9 @@
         <!-- The above (|) represents a template filter - a function that modifies 
         the value in a template varible.-->
         <p>{{ entry.text|linebreaks }}</p>
+        <p>
+            <a href="{% url 'pages:edit_entry' entry.id %}">Edit entry</a>
+        </p>
     </li>
     {% empty %}
         <li>

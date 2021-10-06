@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+ 
+{% load static %}
+
+{% block title %}New Entry{% endblock title %}
+
+{% block content %}
+<p><a href="{% url 'pages:new_entry' topic.id %}">{{ topic }}</a></p>
+<p>Add a new entry:</p>
+<form action="{% url 'pages:new_entry' topic.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Add entry</button>
+</form>
+{% endblock content %}

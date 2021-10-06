@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}Edit Entry{% endblock title %}
+
+{% block content %}
+<p><a href="{% url 'pages:new_entry' topic.id %}">{{ topic }}</a></p>
+<p>Edit Entry:</p>
+
+<form action="{% url 'pages:edit_entry' entry.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Save changes</button>
+</form>
+{% endblock content %}
